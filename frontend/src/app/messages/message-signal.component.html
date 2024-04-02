@@ -1,17 +1,13 @@
-<!-- message.component.html -->
-
-<div>
-  <input type="text" [(ngModel)]="messageVarClasse.content" />
-  <input type="text" [(ngModel)]="messageVarClasse.username" />
-</div>
-
+<input type="text" [(ngModel)]="messageVarClasse().content" />
+<input type="text" [(ngModel)]="messageVarClasse().username" /> <br />
+<br />
 <article class="panel panel-default">
   <div class="panel-body">
-    {{ messageVarClasse.content }}
+    {{ messageVarClasse().content }}
   </div>
   <footer class="panel-footer">
     <div class="author">
-      {{ messageVarClasse.username }}
+      {{ messageVarClasse().username }}
     </div>
     <div class="config">
       <a href="#"> Edit </a>

@@ -1,7 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <app-message></app-message>
+      <app-message [messageVarClasse] = "messageBinding"></app-message>
+      <br />
+      <app-message-signal [messageVarClasse] = "messageBinding"></app-message-signal>
+
     </div>
   </div>
 </div>

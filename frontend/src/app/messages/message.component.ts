@@ -11,10 +11,7 @@ import { Message } from './message.model';
 })
 export class MessageComponent {
 
-  message = {
-    content: 'Teste',
-    author: 'teste',
-  }
+  @Input() messageVarClasse : Message = new Message("", "");
 
 
 }
