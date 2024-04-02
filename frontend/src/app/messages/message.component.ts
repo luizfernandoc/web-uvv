@@ -1,4 +1,4 @@
-import { Component , Input , input } from '@angular/core';
+import { Component , Input, Output , EventEmitter  } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Message } from './message.model';
 
@@ -13,5 +13,10 @@ export class MessageComponent {
 
   @Input() messageVarClasse : Message = new Message("", "");
 
+  @Output() outputMessage = new EventEmitter<string>();
+
+  onEdit(){
+    this.outputMessage.emit("Texto retornado: Venho de message(child) para o app (pai)")
+  }
 
 }
