@@ -1,22 +1,23 @@
-import { Component , Input, Output , EventEmitter  } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { Message } from './message.model';
+import { Component } from '@angular/core';
+
+import { MessageListComponent } from './message-list.component';
+import { MessageInputComponent } from './message-input.component';
 
 @Component({
-  selector: 'app-message',
+  selector: 'app-messages',
   standalone: true,
-  imports: [FormsModule],
-  templateUrl: './message.component.html',
-  styleUrl: './message.component.css'
+  imports: [MessageListComponent, MessageInputComponent],
+  template: `
+    <div class="container">
+      <div class="row">
+        <app-message-input></app-message-input>
+      </div>
+      <div class="row">
+        <app-message-list></app-message-list>
+      </div>
+    </div>
+  `,
 })
-export class MessageComponent {
-
-  @Input() messageVarClasse : Message = new Message("", "");
-
-  @Output() outputMessage = new EventEmitter<string>();
-
-  onEdit(){
-    this.outputMessage.emit("Texto retornado: Venho de message(child) para o app (pai)")
-  }
+export class MessagesComponent {
 
 }
