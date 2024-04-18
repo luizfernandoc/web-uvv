@@ -1,0 +1,68 @@
+<h1>SIGN UP</h1>
+<div class="col-md-8 col-md-offset-2">
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="firstName">Nome: </label>
+      <input
+        type="text"
+        id="firstName"
+        class="form-control"
+        formControlName="firstNameTS"
+      />
+    </div>
+
+    @if(myForm.get('firstNameTS')?.errors?.['required'] &&
+    myForm.get('firstNameTS')?.touched) {
+    <div><p style="color: red">Nome obrigatório</p></div>
+    }
+
+    <div class="form-group">
+      <label for="lastname">Sobrenome: </label>
+      <input
+        type="text"
+        id="lastName"
+        class="form-control"
+        formControlName="lastNameTS"
+      />
+    </div>
+
+    @if(myForm.get('lastNameTS')?.errors?.['required'] &&
+    myForm.get('lastNameTS')?.touched) {
+    <div><p style="color: red">Sobrenome obrigatório</p></div>
+    }
+    
+    <div class="form-group">
+      <label for="email">E-mail: </label>
+      <input
+        type="text"
+        id="email"
+        class="form-control"
+        formControlName="emailTS"
+      />
+    </div>
+
+    @if(myForm.get('emailTS')?.errors?.['required'] &&
+    myForm.get('emailTS')?.touched) {
+    <div><p style="color: red">Email obrigatório</p></div>
+    }
+
+    @if(myForm.get('emailTS')?.errors?.['pattern'] &&
+    myForm.get('emailTS')?.touched) {
+    <div><p style="color: red">Email Inválido</p></div>
+    }
+
+    <div class="form-group">
+      <label for="password">Senha: </label>
+      <input
+        type="text"
+        id="password"
+        class="form-control"
+        formControlName="passwordTS"
+      />
+    </div>
+    <br />
+    <button class="btn btn-primary" type="submit" [disabled]="!myForm.valid">
+      Cadastrar
+    </button>
+  </form>
+</div>
